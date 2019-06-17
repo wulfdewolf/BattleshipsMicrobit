@@ -7,3 +7,6 @@ Multiplayer is supported so copy/pasting to 2 microbits can be done.
 
 This was a project for my second Bachelor year in Computer science for the course Structure of Computerprograms II.
 We only learned C in the course but this project uses some C++ modules.
+
+The 'compile-microbit' file is a bash script that can be run to automatically compile all code via yotta.
+It will also copy/paste the compiled hex-file to a mounted microbit if one is present. 
