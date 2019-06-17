@@ -1,0 +1,34 @@
+#!/bin/bash
+# script that recompiles all code inside {folder} and moves the hex file to the microbit(s)
+# assumes yotta to be installed
+#
+# how to use:
+# create {folder} in microbit-samples folder
+# also in that folder create another folder called "project"
+# place all code in this project folder (.cpp AND .h files)
+
+
+# REPLACE "ownfiles" with {folder}
+# REPLACE "wolf" with own user name!
+
+# move this script to bin folder
+# command: sudo cd {script location} /bin
+#
+# now give it permission to run with
+# command: cd /bin | sudo chmod 755 compile-microbit
+#
+# to use
+# command: compile-microbit
+
+
+
+cd /home/wolf/microbit-samples
+rm -r build/bbc-microbit-classic-gcc
+yotta target bbc-microbit-classic-gcc
+rm source/*.h
+rm source/*.cpp
+cp ownfiles/project/*.cpp source/
+cp ownfiles/project/*.h source/
+yotta build
+cp build/*/source/microbit-samples-combined.hex /media/wolf/MICROBIT
+cp build/*/source/microbit-samples-combined.hex /media/wolf/MICROBIT1
